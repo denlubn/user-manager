@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <table class="table">
+    <tr>
+      <th>ID</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Username</th>
+      <th>Date joined</th>
+      <th>Avatar</th>
+    </tr>
+
+    {% for user in user_list %}
+      <tr>
+        <td>
+            {{ user.id }}
+        </td>
+        <td>
+            {{ user.first_name }}
+        </td>
+        <td>
+            {{ user.last_name }}
+        </td>
+        <td>
+            {{ user.username }}
+        </td>
+        <td>
+            {{ user.date_joined }}
+        </td>
+        <td>
+          {% if user.avatar_file %}
+            <img class="logo" src="/media/{{ user.avatar_file }}"
+                 alt="User avatar">
+          {% endif %}
+        </td>
+{#        <td>#}
+{#            <a href="{% url 'taxi:manufacturer-update' pk=manufacturer.id %}">#}
+{#              Update#}
+{#            </a>#}
+{#          </td>#}
+{#          <td>#}
+{#            <a style="color: red"#}
+{#              href="{% url 'taxi:manufacturer-delete' pk=manufacturer.id %}">#}
+{#              Delete#}
+{#            </a>#}
+{#          </td>#}
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

@@ -1,0 +1,9 @@
+body {
+    margin-top: 20px;
+}
+
+.logo {
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+}
